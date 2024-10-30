@@ -9,9 +9,14 @@
     margin-right: 20px;
     margin-left: 20px;
     visibility: hidden;
-    
-    
+    clip-path: polygon(0 0, 100% 0, 100% 0%, 0 0%);
+    transition: clip-path 0.5s ease, visibility 0.3s ease; 
 }
+#menu-list.show {
+    visibility: visible;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
 .menu-list > a{
     padding-top: 30px;
 }
@@ -26,6 +31,7 @@
 
     align-items: center;
 }
+
 
 
 
