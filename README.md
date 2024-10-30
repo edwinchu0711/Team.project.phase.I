@@ -1,4 +1,4 @@
-[https://edwinchu0711.github.io/Team.project.phase.I/](https://edwinchu0711.github.io/Team.project.phase.I/
+https://edwinchu0711.github.io/Team.project.phase.I/
 
 上面是網頁的網址
 
