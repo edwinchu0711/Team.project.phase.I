@@ -1,3 +1,36 @@
+/* Navbar */
+.menu-list{
+    display:flex;
+    position:fixed;
+    flex-direction: column;
+    /* visibility: hidden; */
+    z-index: 2;
+    background-color: white;
+    margin-right: 20px;
+    margin-left: 20px;
+    visibility: hidden;
+    
+    
+}
+.menu-list > a{
+    padding-top: 30px;
+}
+/* .menu-list:hover,#menu-button:hover + .menu-list{
+    visibility:visible;
+} */
+#menu-button-area{
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding : 0px ;
+
+    align-items: center;
+}
+
+
+
+
+
 /* 第一篇貼文 */
 #first-post-img{
     opacity: 90%;
