@@ -53,5 +53,24 @@
 /* 第六篇貼文 *************************************************************************************************************/
 
 /* 第七篇貼文 *************************************************************************************************************/
-
+#seven-post-img{
+    opacity: 90%;
+}
+.seven-post-list-content{
+    margin-top: 0px;
+    margin-bottom: 12px;
+}
+#seven-post-list{
+    list-style-type: upper-roman;
+}
 /* 第八篇貼文 *************************************************************************************************************/
+#eight-post-img{
+    opacity: 90%;
+}
+.eight-post-list-content{
+    margin-top: 0px;
+    margin-bottom: 12px;
+}
+#eight-post-list{
+    list-style-type: upper-roman;
+}
