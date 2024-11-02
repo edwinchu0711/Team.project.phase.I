@@ -1,3 +1,13 @@
+/* others */
+html{
+    scroll-behavior:smooth; /*讓我網頁內的滑動平順(連結)*/
+    
+}
+
+
+
+
+
 /* Navbar *********************************************************************************************************/
 .menu-list{ /* menu的清單範圍 */
     display:flex;
@@ -11,6 +21,9 @@
     visibility: hidden;
     clip-path: polygon(0 0, 100% 0, 100% 0%, 0 0%);
     transition: clip-path 0.5s ease, visibility 0.3s ease; 
+    letter-spacing: 1.8px; /* 增加字母之間的間距 */
+    
+    
 }
 #menu-list.show {  /* 當class裡多了show 就會收回 */
     visibility: visible;
