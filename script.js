@@ -4,6 +4,7 @@ var list_opening = false ;
 
 function pageload() {
     menuList();
+    
     menu_detect();
 }
 
