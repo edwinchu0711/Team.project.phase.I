@@ -5,15 +5,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="w3.css"> <!-- 原本網頁用的CSS -->
-<link rel="stylesheet" type="text/css" href="style.css" /> <!-- 我們用的CSS -->
-<script src="script.js" type="text/javascript"></script> <!-- 我們用的javascript -->
-<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=dF93y39m6rZCnljPf6s7_rpLSyt_vMioZQGuWDKBDBtt3DmZH7XfdjvH8WtJsEiAIru4TlETH5Gzy6_Uvz-uFR3UCexEmTKe6BYOGvItWxmtN1YvuE78o608PqWzmkSG" charset="UTF-8"></script><style>
-body {font-family: "Times New Roman", Georgia, Serif;}
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Playfair Display";
-  letter-spacing: 5px;
-}
-</style>
+<!-- 預設載入CSS -->
+<link id="dynamic-css" rel="stylesheet" href="style.css?v=initial">
+<!-- 使用defer載入JavaScript，避免阻塞 -->
+<script defer>
+    document.addEventListener("DOMContentLoaded", function() {
+        // 取得當前時間戳
+        const timestamp = new Date().getTime();
+        // 更新CSS檔案的時間戳參數
+        document.getElementById("dynamic-css").href = `style.css?v=${timestamp}`;
+        // 動態載入JavaScript檔案並加上時間戳
+        const script = document.createElement("script");
+        script.src = `script.js?v=${timestamp}`;
+        document.head.appendChild(script);
+    });
+</script>
 </head>
 <body>
 
@@ -30,7 +36,7 @@ h1, h2, h3, h4, h5, h6 {
           <a href="#first-post" class="w3-bar-item w3-button w3-card w3-padding-large">Creamy Risotto</a> 
           <a href="#second-post" class="w3-bar-item w3-button w3-card w3-padding-large" >American Cheeseburger <br>with Fries</a>
           <a href="#third-post" class="w3-bar-item w3-button w3-card w3-padding-large" >Beef Soup</a>
-          <a href="#forth-post" class="w3-bar-item w3-button w3-card w3-padding-large" >Coconut Meat & Coconut Water</a>
+          <a href="#fourth-post" class="w3-bar-item w3-button w3-card w3-padding-large" >Coconut Meat <br>& Coconut Water</a>
           <a href="#fifth-post" class="w3-bar-item w3-button w3-card w3-padding-large" >Braised Pork Rice</a>
           <a href="#sixth-post" class="w3-bar-item w3-button w3-card w3-padding-large" >Noodle</a>
           <a href="#seventh-post" class="w3-bar-item w3-button w3-card w3-padding-large" >Searing Steak</a>
@@ -53,7 +59,7 @@ h1, h2, h3, h4, h5, h6 {
 <!-- Page content -->
 <div class="w3-content" style="max-width:1100px">
 
-  <!-- About Section -->
+  <!-- About Section
   <div class="w3-row w3-padding-64" id="about">
     <div class="w3-col m6 w3-padding-large w3-hide-small">
      <img src="img/tablesetting2.jpg" class="w3-round w3-image w3-opacity-min" alt="Table Setting" width="600" height="750">
@@ -67,38 +73,34 @@ h1, h2, h3, h4, h5, h6 {
     </div>
   </div>
   
-  <hr>
+  <hr> -->
   
   <!-- Menu Section -->
-  <div class="w3-row w3-padding-64" id="menu">
-    <div class="w3-col l6 w3-padding-large">
-      <h1 class="w3-center">Our Menu</h1><br>
-      <h4>Bread Basket</h4>
-      <p class="w3-text-grey">Assortment of fresh baked fruit breads and muffins 5.50</p><br>
-    
-      <h4>Honey Almond Granola with Fruits</h4>
-      <p class="w3-text-grey">Natural cereal of honey toasted oats, raisins, almonds and dates 7.00</p><br>
-    
-      <h4>Belgian Waffle</h4>
-      <p class="w3-text-grey">Vanilla flavored batter with malted flour 7.50</p><br>
-    
-      <h4>Scrambled eggs</h4>
-      <p class="w3-text-grey">Scrambled eggs, roasted red pepper and garlic, with green onions 7.50</p><br>
-    
-      <h4>Blueberry Pancakes</h4>
-      <p class="w3-text-grey">With syrup, butter and lots of berries 8.50</p>    
-    </div>
-    
-    <div class="w3-col l6 w3-padding-large">
+  <div class="w3-row w3-padding-64 post" id="menu">
+    <!-- <div class="w3-col l6 w3-padding-large" id="menu-img">
       <img src="img/tablesetting.jpg" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%">
+    </div> -->
+    <div class="w3-col l12 w3-padding-large">
+      <h1 class="w3-center menu-table-content hide_up">Our Menu</h1><br>
+      <table id="menu-table">
+        <tr><td><h4 class="w3-padding-large menu-table-content hide_up">Creamy Risotto</h4></td><td><h4 class="w3-padding-large menu-table-content hide_up">American Cheeseburger with Fries</h4> </td></tr>
+        <tr><td><h4 class="w3-padding-large menu-table-content hide_up">Beef Soup</h4></td><td><h4 class="w3-padding-large menu-table-content hide_up">Coconut Meat & Coconut Water</h4></td></tr>
+        <tr><td><h4 class="w3-padding-large menu-table-content hide_up">Braised Pork Rice</h4></td><td><h4 class="w3-padding-large menu-table-content hide_up">Noodles</h4></td></tr>
+        <tr><td><h4 class="w3-padding-large menu-table-content hide_up">Searing Steak</h4></td><td><h4 class="w3-padding-large menu-table-content hide_up">Energy Boost Latte</h4></td></tr>
+      </table>
+      
+      
+      
     </div>
+    
+    
   </div>
 
   <hr>
   <!-- 第一篇貼文 -->
-   <div class="w3-container w3-padding-64" id="first-post">
+   <div class="w3-container w3-padding-64 post hide_right" id="first-post">
     <div class="w3-col l6 w3-padding-large">
-      <img src="img/Creamy Risotto small.jpg" id="first-post-img" class="w3-round w3-image" alt="Menu" style="width:100%">
+      <img src="img/Creamy Risotto.jpg" id="first-post-img" class="w3-round w3-image" alt="Menu" style="width:100%">
     </div>
     <div class="w3-col l6 w3-padding-large">
       <h1 class="w3-center">Creamy Risotto</h1><br>
@@ -123,7 +125,7 @@ h1, h2, h3, h4, h5, h6 {
   <hr>
 
   <!-- 第二篇貼文 -->
-  <div class="w3-container w3-padding-64" id="second-post">
+  <div class="w3-container w3-padding-64 post hide_left" id="second-post">
     <div class="w3-col l6 w3-padding-large">
       <h1 class="w3-center">American Cheeseburger with Fries</h1><br>
       <p class="w3-large" >This classic fast-food combination is a favorite for many, 
@@ -155,7 +157,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
   <!-- 第三篇貼文 -->
-  <div class="w3-container w3-padding-64" id="third-post">
+  <div class="w3-container w3-padding-64 post hide_right" id="third-post">
     <div class="w3-col l6 w3-padding-large">
       <img src="img/beef soup.jpg" id="third-post-img" class="w3-round w3-image" alt="Menu" style="width:100%">
     </div>
@@ -167,7 +169,7 @@ h1, h2, h3, h4, h5, h6 {
          The beef slices, cooked to perfection, are tender and juicy. 
          Finishing a bowl of beef soup leaves you feeling warm and content, especially on a cold day—it's truly a comforting experience.</p>
         <h4 class="w3-padding-16">Eating Tips</h4>
-        <ol class="w3-text-grey w3-large" id="first-post-list">
+        <ol class="w3-text-grey w3-large" id="third-post-list">
           <li class="third-post-list-content">Try pouring some of the soup over white rice. The rice absorbs the flavors, adding depth and making each bite even more satisfying.</li>
           <li class="third-post-list-content">For an added layer of flavor, mix in a little chopped scallion or sliced ginger. These enhance the soup's aroma and bring out the natural taste.</li>
           <li class="third-post-list-content">To keep the beef tender, avoid letting it soak in the soup for too long. It's best enjoyed as soon as it’s served.</li>
@@ -177,9 +179,9 @@ h1, h2, h3, h4, h5, h6 {
   <hr>
 
 <!-- 第四篇貼文 -->
-<div class="w3-container w3-padding-64" id="fourth-post">
+<div class="w3-container w3-padding-64 post hide_left" id="fourth-post">
   <div class="w3-col l6 w3-padding-large">
-    <h1 class="w3-center">Coconut Meat & Coconut Water</h1><br>
+    <h1 class="w3-center">Coconut Meat <br>& Coconut Water</h1>
     <p class="w3-large" >Not sure what to do on a boring typhoon day off? 
       Well, of course, it’s time to head out and pick up some free coconuts on the roadside!
        The taste of coconut water is naturally sweet and especially refreshing. 
@@ -200,7 +202,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
   <!-- 第五篇貼文 -->
-    <div class="w3-container w3-padding-64" id="fifth-post">
+    <div class="w3-container w3-padding-64 post hide_right" id="fifth-post">
       <div class="w3-col l6 w3-padding-large">
         <img src="img/Braised pork rice.jpg" id="fifth-post-img" class="w3-round w3-image" alt="Menu" style="width:100%">
       </div>
@@ -221,7 +223,7 @@ h1, h2, h3, h4, h5, h6 {
     <hr>
     
     <!-- 第六篇貼文 -->
-    <div class="w3-container w3-padding-64" id="sixth-post">
+    <div class="w3-container w3-padding-64 post hide_left" id="sixth-post">
       
       <div class="w3-col l6 w3-padding-large">
         <h1 class="w3-center">Noodles</h1><br>
@@ -243,7 +245,7 @@ h1, h2, h3, h4, h5, h6 {
     <hr>
 
      <!-- 第七篇貼文 -->
-   <div class="w3-container w3-padding-64" id="seventh-post">
+   <div class="w3-container w3-padding-64 post hide_right" id="seventh-post">
     <div class="w3-col l6 w3-padding-large">
       <img src="img/steak.jpg" id="seventh-post-img" class="w3-round w3-image" alt="Menu" style="width:100%">
     </div>
@@ -270,7 +272,7 @@ h1, h2, h3, h4, h5, h6 {
   <hr>
 
   <!-- 第八篇貼文 -->
-  <div class="w3-container w3-padding-64" id="eighth-post">
+  <div class="w3-container w3-padding-64 post hide_left" id="eighth-post">
     <div class="w3-col l6 w3-padding-large">
       <h1 class="w3-center">Energy Boost Latte</h1><br>
       <p class="w3-large" >A steaming cup of latte is more than just a beverage;
@@ -319,6 +321,7 @@ h1, h2, h3, h4, h5, h6 {
 <footer class="w3-center w3-light-grey w3-padding-32">
   <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
 </footer>
+<a id="arrow-box" href="#top" ><img id="arrow" class = "hidden" src="img/arrow.png" ></a>
 
 </body>
 </html>

@@ -3,6 +3,24 @@ html{
     scroll-behavior:smooth; /*讓我網頁內的滑動平順(連結)*/
     
 }
+body {
+    font-family: "Times New Roman", Georgia, Serif;
+    background-image:url("/img/background.jpg");
+    background-size: cover;
+    
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display";
+  letter-spacing: 5px;
+}
+.post{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.hide_left , .hide_right , .hide_up{  /*讓文章原本隱藏*/
+    visibility: hidden;
+}
 
 
 
@@ -22,8 +40,6 @@ html{
     clip-path: polygon(0 0, 100% 0, 100% 0%, 0 0%);
     transition: clip-path 0.5s ease, visibility 0.3s ease; 
     letter-spacing: 1.8px; /* 增加字母之間的間距 */
-    
-    
 }
 #menu-list.show {  /* 當class裡多了show 就會收回 */
     visibility: visible;
@@ -39,6 +55,54 @@ html{
 }
 
 
+/* 文中menu */
+#menu{
+    border-radius: 15px;
+    margin-top: 50px;
+    margin-bottom: 60px;
+    /* background-image: url("img/tablesetting.jpg"); */
+
+    background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)),url("img/tablesetting.jpg") ;
+    background-size: cover;
+    background-position: center 40%;
+    
+
+}
+#menu-img{
+    opacity: 80%;
+    position:absolute ;
+    transform: rotate(90deg);
+    z-index: 0;
+    justify-self: center;
+    left :10%;
+    right : 10%;
+    width: 60vw;
+}
+#menu-table{
+    width: 100%;
+    text-align: center;
+    td{
+        width : 50%;
+        height: 40px;
+    }
+}
+.menu-table-content{
+    transition: opacity 0.5s ease;
+}
+.menu-show{
+    animation: slideIn_Top 1s forwards;
+}
+@keyframes slideIn_Top {
+    0% { 
+        opacity: 0; 
+        transform: translateY(-20px);
+    }
+    100% { 
+        opacity: 1; 
+        transform: translateY(0px); 
+    }
+}
+
 
 
 
@@ -46,6 +110,7 @@ html{
 /* 第一篇貼文 ************************************************************************************************************/
 #first-post-img{
     opacity: 90%;
+
 }
 .first-post-list-content{
     margin-top: 0px;
@@ -58,6 +123,7 @@ html{
 /* 第二篇貼文 *************************************************************************************************************/
 
 /* 第三篇貼文 *************************************************************************************************************/
+
 #third-post-img{
     opacity: 90%;
 }
@@ -128,4 +194,44 @@ html{
 }
 #eight-post-list{
     list-style-type: upper-roman;
+}
+
+
+
+/* arrow圖片 回到最頂端 */
+#arrow-box{
+    position: fixed;
+    height: 70px;
+    width: 70px;
+    bottom: 20px;
+    justify-self:end; 
+    right: 10px;  
+}
+#arrow{
+    filter:drop-shadow(0px 0px 10px rgba(0,0,0,.25)) contrast(200%);
+    height: 70px;
+    width: 70px;
+    bottom: 20px;
+    
+    
+    
+    
+}
+#arrow.show{
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0.7s ease, opacity 0.7s ease;
+}
+#arrow.hidden{
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.4s ease, opacity 0.4s ease;
+}
+a#arrow-box:hover{
+    cursor:auto;
+    
+}
+#arrow:hover{
+    filter:drop-shadow(0px 0px 10px rgba(0,0,0,.6)) contrast(200%);
+    cursor: pointer;
 }
